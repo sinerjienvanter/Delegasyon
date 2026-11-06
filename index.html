@@ -124,7 +124,7 @@ p{margin:0 0 12px;color:#4b5563;font-size:16px;line-height:1.65}
     <span class="eyebrow">Sonuç</span><h1>Delegasyon Pusulanız</h1>
     <p class="resultIntro">Aşağıdaki puanlar, 20 soruda dağıttığınız toplam 100 puanın delegasyon yaklaşımlarına dağılımını gösterir.</p>
     <div class="resultPanel"><h2>Sonuç Grafiği</h2><div id="bars" class="bars"></div><div class="axis"><span></span><div class="axisTicks"><span>0</span><span>20</span><span>40</span><span>60</span><span>80</span><span>100</span></div><span></span></div></div>
-    <div class="resultTableWrap"><table class="resultTable"><thead><tr><th>Sıra</th><th>Kod</th><th>Delegasyon yaklaşımı</th><th style="text-align:right">Puan</th></tr></thead><tbody id="resultRows"></tbody></table></div>
+    <div class="resultTableWrap"><table class="resultTable"><thead><tr><th>Sıra</th><th>Kod</th><th style="text-align:right">Puan</th></tr></thead><tbody id="resultRows"></tbody></table></div>
     <div class="actions resultActions"><button id="detailBtn" class="btn secondary">Soruları ve Verdiğim Puanları Gör</button><button id="restartBtn" class="btn softBtn">Yeniden Başla</button></div>
   </section>
 
@@ -177,7 +177,7 @@ function calculateScores(){const scores=Object.fromEntries(styles.map(style=>[st
 function buildResults(){
   const scores=calculateScores();
   $('bars').innerHTML=styles.map(style=>`<div class="barRow"><span class="barName">${style.code}</span><div class="barTrack"><div class="barFill" style="width:${scores[style.code]}%"></div></div><span class="barScore">${scores[style.code]}/100</span></div>`).join('');
-  $('resultRows').innerHTML=styles.map((style,index)=>`<tr><td>${index+1}</td><td>${style.code}</td><td>${style.name}</td><td>${scores[style.code]}</td></tr>`).join('');
+  $('resultRows').innerHTML=styles.map((style,index)=>`<tr><td>${index+1}</td><td>${style.code}</td><td>${scores[style.code]}</td></tr>`).join('');
   buildDetails();showScreen('results');
 }
 function buildDetails(){
